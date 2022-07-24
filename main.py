@@ -331,6 +331,17 @@ Out all this, you can still talk to me :") \n''')
             except:
                 print('Could not do this research')
                 speak('Could not do this research')
+        elif command[0:12] == 'tell me about':
+            print('Searching... Wait')
+            speak('Searching, Wait!')
+            try:
+                search = (wikipedia.search(command[13:text]))[1]
+                search = wikipedia.summary(search, sentences=3).replace('=', '')
+                print(search)
+                speak(search)
+            except:
+                print('Could not do this research')
+                speak('Could not do this research')
         elif command[0:10] == 'history of':
             print('Searching... Wait')
             speak('Searching, Wait!')
